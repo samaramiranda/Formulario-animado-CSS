@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  background-color: #279687;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  color: white;
+}
+
+form {
+  margin: 20px 0;
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 5px;
+}
+
+form .input-block {
+  margin-bottom: 20px;
+}
+
+form .input-block label {
+  font-size: 14px;
+  color: darkslateblue;
+}
+
+form .input-block input {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+  padding: 7px;
+  font-size: 16px;
+  color: #279687;
+  border-radius: 2px;
+  border: 1px solid #ccddef;
+  outline-color: #279687;
+}
+
+form .btn-login {
+  display: block;
+  min-width: 120px;
+  border: none;
+  background-color: #279687;
+  color: white;
+  border-radius: 25px;
+  margin: auto;
+  padding: 7px;
+}
+
+/*ANIMAÇÕES EM CSS*/
+
+/* CAMPOS DA ESQUERDA PARA DIREITA */
+form{
+  overflow: hidden; /*para os campos não aparecerem do lado de fora do formulário*/
+  animation: fade 0.5s; /*aparição do formulário*/
+}
+
+/*Animação do primeiro input*/
+form .input-block:nth-child(1) { /*chamando a animação nos campos*/
+  animation: move 500ms; /*unico as propriedades nome e duração*/
+}
+
+/*Animação do segundo input*/
+form .input-block:nth-child(2) { 
+  animation: move 400ms;
+  animation-delay: 100ms; /*definindo intervalo antes do campo aparecer*/
+  animation-fill-mode: backwards; /*o input fica na posição inicial do from até acabar o delay*/
+}
+
+/*Animaçãoa do button*/
+form .btn-login {
+  animation: move 400ms;
+  animation-delay: 250ms;
+  animation-fill-mode: backwards;
+}
+
+@keyframes move {
+  from { 
+    opacity: 0;
+    transform: translateX(-35%); /*começa a transição -35 do eixo X*/
+  }to {
+    opacity: 1;
+    transform: translateX(0%); /*termina no 0 do eixo X*/
+  }
+}
+
+/*Animação da aparição do formulário*/
+@keyframes fade {
+  from { /*"From" significa  0%*/
+    opacity: 0;
+    transform: scale(0.9);
+  }to { /*"To" significa 100%*/
+    opacity: 1;
+    transform: scale(1);
+  }
+}
